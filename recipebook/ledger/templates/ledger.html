@@ -6,8 +6,8 @@
 <body>
     <h1>Recipe Book</h1>
     <ul>
-        {% for recipe in ledger %}
-            <li><a href = "/recipe/{{recipe.pk}}/">{{ recipe.name }}</a></li>
+        {% for recipes in ledger %}
+            <li><a href = "{% url 'ledger:recipe' recipes.pk %}">{{ recipes.name }}</a></li>
         {% endfor %}
     </ul>
 </body>
