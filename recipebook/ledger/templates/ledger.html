@@ -7,7 +7,7 @@
     <h1>Recipe Book</h1>
     <ul>
         {% for recipe in ledger %}
-            <li><a href = "{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></li>
+        <li><a href = "/recipe/{{recipe.pk}}/">{{ recipe.name }}</a></li>
         {% endfor %}
     </ul>
 </body>
