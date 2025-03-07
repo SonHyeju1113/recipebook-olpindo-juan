@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang = 'en-US'>
 <head>
-    <title>{{ name }}</title>
+    <title>Recipe Book</title>
 </head>
 <body>
     <h1>Recipe Book</h1>
     <ul>
-        {% for item in ingredients %}
-            <li>{{ item.name }} - {{ item.quantity }}</li>
+        {% for ingredient in recipe.ingredients.all %}
+            <li>{{ ingredient.ingredient.name }} - {{ recipe.quantity }}</li>
         {% endfor %}
     </ul>
 </body>
