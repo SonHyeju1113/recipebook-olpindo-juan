@@ -1,136 +1,14 @@
-from django.shortcuts import render, HttpResponse
-from django.template import loader
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from .models import Recipe
 
 # Create your views here.
-def ledger(request):
-    ctx = {
-        "recipes": [
-            {
-                "name": "Recipe 1",
-                "ingredients": [
-                    {
-                        "name": "tomato",
-                        "quantity": "3pcs"
-                    },
-                    {
-                        "name": "onion",
-                        "quantity": "1pc"
-                    },
-                    {
-                        "name": "pork",
-                        "quantity": "1kg"
-                    },
-                    {
-                        "name": "water",
-                        "quantity": "1L"
-                    },
-                    {
-                        "name": "sinigang mix",
-                        "quantity": "1 packet"
-                    }
-                ],
-                "link": "/recipe/1"
-            },
-            {
-                "name": "Recipe 2",
-                "ingredients": [
-                    {
-                        "name": "garlic",
-                        "quantity": "1 head"
-                    },
-                    {
-                        "name": "onion",
-                        "quantity": "1pc"
-                    },
-                    {
-                        "name": "vinegar",
-                        "quantity": "1/2cup"
-                    },
-                    {
-                        "name": "water",
-                        "quanity": "1 cup"
-                    },
-                    {
-                        "name": "salt",
-                        "quantity": "1 tablespoon"
-                    },
-                    {
-                        "name": "whole black peppers",
-                        "quantity": "1 tablespoon"
-                    },
-                    {
-                        "name": "pork",
-                        "quantity": "1 kilo"
-                    }
-                ],
-                "link": "/recipe/2"
-            }
-        ]
-    }
-    return render(request, 'ledger.html', ctx)
+class ledger(ListView):
+    model = Recipe
+    context_object_name = 'ledger'
+    template_name = 'ledger.html'
 
-def recipe1(request):
-    ctx = {
-        "name": "Recipe 1",
-        "ingredients": [
-            {
-                "name": "tomato",
-                "quantity": "3pcs"
-            },
-            {
-                "name": "onion",
-                "quantity": "1pc"
-            },
-            {
-                "name": "pork",
-                "quantity": "1kg"
-            },
-            {
-                "name": "water",
-                "quantity": "1L"
-            },
-            {
-                "name": "sinigang mix",
-                "quantity": "1 packet"
-            }
-        ],
-        "link": "/recipe/1"
-    }
-    return render(request, 'recipe.html', ctx)
-
-def recipe2(request):
-    ctx = {
-        "name": "Recipe 2",
-        "ingredients": [
-            {
-                "name": "garlic",
-                "quantity": "1 head"
-            },
-            {
-                "name": "onion",
-                "quantity": "1pc"
-            },
-            {
-                "name": "vinegar",
-                "quantity": "1/2cup"
-            },
-            {
-                "name": "water",
-                "quantity": "1 cup"
-            },
-            {
-                "name": "salt",
-                "quantity": "1 tablespoon"
-            },
-            {
-                "name": "whole black peppers",
-                "quantity": "1 tablespoon"
-            },
-            {
-                "name": "pork",
-                "quantity": "1 kilo"
-            }
-        ],
-        "link": "/recipe/2"
-    }
-    return render(request, 'recipe.html', ctx)
+class recipe(DetailView):
+    model = Recipe
+    context_object_name = 'recipe'
+    template_name = 'recipe.html'
