@@ -7,7 +7,7 @@
     <h1>Recipe Book</h1>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
-            <li>{{ ingredient.ingredient.name }} - {{ recipe.quantity }}</li>
+            <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
         {% endfor %}
     </ul>
 </body>
