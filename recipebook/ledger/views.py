@@ -3,7 +3,6 @@ from django.views.generic.detail import DetailView
 from .models import Recipe
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
 class ledger(LoginRequiredMixin, ListView):
     model = Recipe
     context_object_name = 'ledger'
