@@ -1,10 +1,10 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, modelformset_factory
 from .models import Recipe, Ingredient, RecipeIngredient, RecipeImage
 
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = '__all__'
+        fields = ['name',]
 
 class IngredientForm(ModelForm):
     class Meta:
@@ -14,7 +14,7 @@ class IngredientForm(ModelForm):
 class RecipeIngredientForm(ModelForm):
     class Meta:
         model = RecipeIngredient
-        fields = '__all__'
+        fields = ['ingredient', 'quantity',]
 
 class RecipeImageForm(ModelForm):
     class Meta:
